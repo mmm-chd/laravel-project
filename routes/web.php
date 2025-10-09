@@ -6,8 +6,9 @@ use App\Http\Controllers\GuardiansController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentsController;
+use App\Http\Controllers\SubjectController;
+use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Route;
-use Symfony\Component\HttpKernel\Profiler\Profile;
 //
 // Route::get('/', function () {
 //     return view('Selamat datang di web saya');
@@ -19,3 +20,5 @@ Route::get('/contact', [ContactController::class, 'index']);
 Route::get('/students', [StudentsController::class, 'index']);
 Route::get('/guardians', [GuardiansController::class, 'index']);
 Route::get('/classrooms', [ClassroomController::class, 'index']);
+Route::get('/teacher', [TeacherController::class, 'index']);
+Route::get('/subject', [SubjectController::class, 'index']);

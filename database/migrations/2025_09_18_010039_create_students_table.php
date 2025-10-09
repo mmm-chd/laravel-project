@@ -17,7 +17,7 @@ return new class extends Migration
             $table->date('birthday');
             $table->string('gender');
             $table->integer('classroom_id');
-            $table->string('email');
+            $table->string('email')->unique();
             $table->string('address');
             $table->timestamps();
         });

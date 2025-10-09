@@ -46,6 +46,16 @@
                                 :active="request()->is('classrooms')">
                                 Classrooms
                             </x-nav-link>
+                            <x-nav-link
+                                href="/teacher"
+                                :active="request()->is('teacher')">
+                                Teacher
+                            </x-nav-link>
+                            <x-nav-link
+                                href="/subject"
+                                :active="request()->is('subject')">
+                                Subject
+                            </x-nav-link>
                         </div>
                     </div>
                 </div>
@@ -113,6 +123,26 @@
                     href="/students"
                     :active="request()->is('student')">
                     Students
+                </x-nav-link-mobile>
+                <x-nav-link-mobile
+                    href="/guardians"
+                    :active="request()->is('guardians')">
+                    Guardians
+                </x-nav-link-mobile>
+                <x-nav-link-mobile
+                    href="/classrooms"
+                    :active="request()->is('classrooms')">
+                    Classrooms
+                </x-nav-link-mobile>
+                <x-nav-link-mobile
+                    href="/teacher"
+                    :active="request()->is('teacher')">
+                    Teacher
+                </x-nav-link-mobile>
+                <x-nav-link-mobile
+                    href="/subject"
+                    :active="request()->is('subject')">
+                    Subject
                 </x-nav-link-mobile>
             </div>
             <div class="border-t border-white/10 pt-4 pb-3">
