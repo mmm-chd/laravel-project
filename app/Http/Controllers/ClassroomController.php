@@ -14,7 +14,7 @@ class ClassroomController extends Controller
     {
         $classrooms = Classroom::all();
 
-        return view('classrooms', [
+        return view('pages.classrooms', [
             'title' => 'Classrooms',
             'classrooms' => $classrooms
         ]);

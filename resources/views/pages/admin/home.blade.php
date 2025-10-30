@@ -1,0 +1,13 @@
+<x-admin.layout>
+    <h1 style="font-weight: bold; color:azure">ABCD Apa kabar</h1>
+    <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis debitis tempora cumque vero delectus explicabo mollitia laboriosam exercitationem commodi, odit corporis nesciunt, eaque distinctio veniam qui harum neque iste facere?
+        Dolorem facere perferendis, porro, quo at tempora iste odio nostrum eveniet fugiat ipsam suscipit ducimus facilis sit dicta libero quis reprehenderit quod ut impedit. Odit necessitatibus eveniet ratione nam est!
+        Possimus dolorum temporibus natus quaerat iure pariatur eum vero ipsa ducimus beatae nisi, ullam reiciendis, delectus similique repellendus soluta accusantium eius at aperiam molestias! Veniam beatae repellat maiores quisquam at.
+        Laudantium, sapiente suscipit consequatur tempore ab vel minima repudiandae provident, similique quidem illum accusamus quas iusto doloribus delectus. Libero perferendis soluta doloremque odit molestiae autem repudiandae illo quod veritatis in?
+        Ipsam, quo repellat molestias ipsa quis recusandae facilis id adipisci quos ea hic corporis iste eaque. Deserunt corporis deleniti amet velit fuga optio quos, blanditiis, quod beatae pariatur soluta nihil?
+        Eveniet dolore aut numquam nisi enim magnam veritatis sit natus delectus quasi tempore tempora molestias accusantium cum ea culpa, suscipit, autem ab soluta rem earum! Ut sit nesciunt beatae dignissimos.
+        Deserunt architecto nisi exercitationem dolor enim aspernatur suscipit similique pariatur libero repellat nobis, facilis eos error alias necessitatibus deleniti, reiciendis nostrum eum molestias laborum cupiditate, quia iusto consectetur voluptatem. Autem.
+        Tenetur saepe odio fugiat officia, totam iure molestias quisquam est error nemo sunt, suscipit quo quas. Molestias, quibusdam accusantium. Sunt facilis ratione illo omnis dignissimos voluptatem magnam ea dolores atque?
+        Quibusdam, ipsam! Iste ex sapiente sit vitae, ipsum accusantium laudantium dolores alias qui enim deserunt maiores repellat debitis beatae eveniet praesentium? Perspiciatis odio quasi excepturi, fuga sit iure rem laudantium.
+        Saepe sunt veritatis nihil accusantium dignissimos animi qui possimus aspernatur placeat, enim excepturi, mollitia consectetur nemo laudantium neque adipisci. Quisquam rem illum, ratione blanditiis aperiam atque voluptate facilis accusantium esse.</p>
+</x-admin.layout>

@@ -11,6 +11,6 @@ class ContactController extends Controller
         $data = [
             'title' => 'Contact',
         ];
-        return view('contact', $data);
+        return view('pages.contact', $data);
     }
 }

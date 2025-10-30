@@ -15,6 +15,6 @@ class ProfileController extends Controller
             'kelas' => 'XI PPLG 2',
             'sekolah' => 'SMK Raden Umar Said Kudus'
         ];
-        return view('profile', $data);
+        return view('pages.profile', $data);
     }
 }

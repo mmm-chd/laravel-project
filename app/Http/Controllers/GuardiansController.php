@@ -14,7 +14,7 @@ class GuardiansController extends Controller
     {
         $guardians = Guardian::all();
 
-        return view('guardians', [
+        return view('pages.guardians', [
             'title' => 'Guardian',
             'guardians' => $guardians
         ]);

@@ -14,7 +14,7 @@ class TeacherController extends Controller
     {
         $teacher = Teacher::all();
 
-        return view('teachers', [
+        return view('pages.teachers', [
             'title' => 'Teacher',
             'teachers' => $teacher
         ]);

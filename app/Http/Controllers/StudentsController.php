@@ -15,7 +15,10 @@ class StudentsController extends Controller
 
         $students = Student::all();
 
-        return view('students', [
+        ////Eager Loading
+        // $students = Student::with('classroom')->get();
+
+        return view('pages.students', [
             'title' => 'Student',
             'students' => $students
         ]);

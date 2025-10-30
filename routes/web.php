@@ -22,3 +22,10 @@ Route::get('/guardians', [GuardiansController::class, 'index']);
 Route::get('/classrooms', [ClassroomController::class, 'index']);
 Route::get('/teacher', [TeacherController::class, 'index']);
 Route::get('/subject', [SubjectController::class, 'index']);
+
+Route::get('/admin/dashboard', function () {
+    return view('pages.admin.home');
+});
+Route::get('/admin/profile', function () {
+    return view('pages.admin.profile');
+});
