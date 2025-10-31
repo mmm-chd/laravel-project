@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\admin\StudentsAdController;
+use App\Http\Controllers\admin\DashboardAdController;
 use App\Http\Controllers\ClassroomController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\GuardiansController;
@@ -8,6 +10,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\TeacherController;
+use App\View\Components\admin;
 use Illuminate\Support\Facades\Route;
 //
 // Route::get('/', function () {
@@ -22,10 +25,5 @@ Route::get('/guardians', [GuardiansController::class, 'index']);
 Route::get('/classrooms', [ClassroomController::class, 'index']);
 Route::get('/teacher', [TeacherController::class, 'index']);
 Route::get('/subject', [SubjectController::class, 'index']);
-
-Route::get('/admin/dashboard', function () {
-    return view('pages.admin.home');
-});
-Route::get('/admin/profile', function () {
-    return view('pages.admin.profile');
-});
+Route::get('/admin/students', [StudentsAdController::class, 'index']);
+Route::get('/admin/dashboard', [DashboardAdController::class, 'index']);
