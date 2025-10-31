@@ -72,22 +72,22 @@
             Students
           </x-admin.side-link>
           <x-admin.side-link
-            href="/"
+            href="/admin/guardians"
             :paths="$guardianIcon">
             Guardians
           </x-admin.side-link>
           <x-admin.side-link
-            href="/"
+            href="/admin/classroom"
             :paths="$classIcon">
             Classrooms
           </x-admin.side-link>
           <x-admin.side-link
-            href="/"
+            href="/admin/teachers"
             :paths="$teacherIcon">
             Teachers
           </x-admin.side-link>
           <x-admin.side-link
-            href="/"
+            href="/admin/subjects"
             :paths="$subjectIcon">
             Subjects
           </x-admin.side-link>

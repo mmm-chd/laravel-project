@@ -25,5 +25,10 @@ Route::get('/guardians', [GuardiansController::class, 'index']);
 Route::get('/classrooms', [ClassroomController::class, 'index']);
 Route::get('/teacher', [TeacherController::class, 'index']);
 Route::get('/subject', [SubjectController::class, 'index']);
-Route::get('/admin/students', [StudentsAdController::class, 'index']);
+
 Route::get('/admin/dashboard', [DashboardAdController::class, 'index']);
+Route::get('/admin/students', [StudentsAdController::class, 'index']);
+Route::get('/admin/guardians', [StudentsAdController::class, 'index']);
+Route::get('/admin/classroom', [StudentsAdController::class, 'index']);
+Route::get('/admin/teachers', [StudentsAdController::class, 'index']);
+Route::get('/admin/subjects', [StudentsAdController::class, 'index']);
