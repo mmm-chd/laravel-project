@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Subject;
 use Illuminate\Http\Request;
 
 class SubjectsAdController extends Controller
@@ -12,7 +13,11 @@ class SubjectsAdController extends Controller
      */
     public function index()
     {
-        return view('pages.admin.subjects');
+        $subjects = Subject::with('teacher')->paginate(30);
+
+        return view('pages.admin.subjects', [
+            'subjects' => $subjects
+        ]);
     }
 
     /**

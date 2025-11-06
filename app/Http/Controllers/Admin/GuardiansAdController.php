@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Guardian;
 use Illuminate\Http\Request;
 
 class GuardiansAdController extends Controller
@@ -12,7 +13,11 @@ class GuardiansAdController extends Controller
      */
     public function index()
     {
-        return view('pages.admin.guardians');
+        $guardians = Guardian::paginate(30);
+
+        return view('pages.admin.guardians', [
+            'guardians' => $guardians
+        ]);
     }
 
     /**

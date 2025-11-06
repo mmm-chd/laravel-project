@@ -2,6 +2,10 @@
 
 use App\Http\Controllers\admin\StudentsAdController;
 use App\Http\Controllers\admin\DashboardAdController;
+use App\Http\Controllers\admin\ClassroomAdController;
+use App\Http\Controllers\admin\GuardiansAdController;
+use App\Http\Controllers\admin\SubjectsAdController;
+use App\Http\Controllers\admin\TeachersAdController;
 use App\Http\Controllers\ClassroomController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\GuardiansController;
@@ -10,6 +14,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\TeacherController;
+use App\Models\Classroom;
 use App\View\Components\admin;
 use Illuminate\Support\Facades\Route;
 //
@@ -26,9 +31,10 @@ Route::get('/classrooms', [ClassroomController::class, 'index']);
 Route::get('/teacher', [TeacherController::class, 'index']);
 Route::get('/subject', [SubjectController::class, 'index']);
 
+Route::get('/admin', [DashboardAdController::class, 'index']);
 Route::get('/admin/dashboard', [DashboardAdController::class, 'index']);
 Route::get('/admin/students', [StudentsAdController::class, 'index']);
-Route::get('/admin/guardians', [StudentsAdController::class, 'index']);
-Route::get('/admin/classroom', [StudentsAdController::class, 'index']);
-Route::get('/admin/teachers', [StudentsAdController::class, 'index']);
-Route::get('/admin/subjects', [StudentsAdController::class, 'index']);
+Route::get('/admin/guardians', [GuardiansAdController::class, 'index']);
+Route::get('/admin/classroom', [ClassroomAdController::class, 'index']);
+Route::get('/admin/teachers', [TeachersAdController::class, 'index']);
+Route::get('/admin/subjects', [SubjectsAdController::class, 'index']);

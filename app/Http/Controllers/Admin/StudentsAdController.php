@@ -13,10 +13,10 @@ class StudentsAdController extends Controller
      */
     public function index()
     {
-        $students = Student::all();
+        // $students = Student::all();
 
         ////Eager Loading
-        // $students = Student::with('classroom')->get();
+        $students = Student::with('classroom')->paginate(30);
 
         return view('pages.admin.students', [
             'students' => $students
