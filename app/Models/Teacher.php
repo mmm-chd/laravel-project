@@ -11,6 +11,13 @@ class Teacher extends Model
     use HasFactory;
 
     protected $with = ['subject'];
+    protected $fillable = [
+        'name',
+        'subject_id',
+        'phone',
+        'email',
+        'address'
+    ];
 
     public function subject()
     {

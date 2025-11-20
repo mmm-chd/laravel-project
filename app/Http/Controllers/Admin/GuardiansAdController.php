@@ -33,7 +33,17 @@ class GuardiansAdController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'job' => 'required|string|max:255',
+            'phone' => 'required|string|regex:/^[0-9+\-\s]+$/|min:8|max:20',
+            'email' => 'required|email|unique:guardians,email',
+            'address' => 'nullable|string|max:255',
+        ]);
+
+        Guardian::create($validated);
+
+        return redirect()->back()->with('success', 'Data saved !');
     }
 
     /**
@@ -57,7 +67,19 @@ class GuardiansAdController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $guardians = Guardian::findOrFail($id);
+
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'job' => 'required|string|max:255',
+            'phone' => 'required|string|regex:/^[0-9+\-\s]+$/|min:8|max:20',
+            'email' => 'required|email|unique:guardians,email,' . $id,
+            'address' => 'nullable|string|max:255',
+        ]);
+
+        $guardians->update($validated);
+
+        return redirect()->back()->with('success', 'Guardian updated successfully!');
     }
 
     /**
@@ -65,6 +87,9 @@ class GuardiansAdController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $guardians = Guardian::findOrFail($id);
+        $guardians->delete();
+
+        return redirect()->back()->with('success', 'Guardian deleted successfully!');
     }
 }

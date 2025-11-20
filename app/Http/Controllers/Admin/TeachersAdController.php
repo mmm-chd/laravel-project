@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Subject;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
 
@@ -14,9 +15,11 @@ class TeachersAdController extends Controller
     public function index()
     {
         $teachers = Teacher::with('subject')->paginate(30);
+        $subjects = Subject::all();
 
         return view('admin.teachers.table', [
-            'teachers' => $teachers
+            'teachers' => $teachers,
+            'subjects' => $subjects
         ]);
     }
 
@@ -33,7 +36,17 @@ class TeachersAdController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'subject_id' => 'required|integer|exists:subjects,id',
+            'phone' => 'required|string|min:8|max:20',
+            'email' => 'required|email|unique:guardians,email',
+            'address' => 'nullable|string|max:255',
+        ]);
+
+        Teacher::create($validated);
+
+        return redirect()->back()->with('success', 'Data saved !');
     }
 
     /**
@@ -57,7 +70,19 @@ class TeachersAdController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $teachers = Teacher::findOrFail($id);
+
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'subject_id' => 'required|integer|exists:subjects,id',
+            'phone' => 'required|string|min:8|max:20',
+            'email' => 'required|email|unique:guardians,email,' . $id,
+            'address' => 'nullable|string|max:255',
+        ]);
+
+        $teachers->update($validated);
+
+        return redirect()->back()->with('success', 'Teacher updated successfully!');
     }
 
     /**
@@ -65,6 +90,9 @@ class TeachersAdController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $teachers = Teacher::findOrFail($id);
+        $teachers->delete();
+
+        return redirect()->back()->with('success', 'Teacher deleted successfully!');
     }
 }

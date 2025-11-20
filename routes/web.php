@@ -40,10 +40,19 @@ Route::put('/admin/students/{id}', [StudentsAdController::class, 'update'])->nam
 Route::delete('/admin/students/{id}', [StudentsAdController::class, 'destroy'])->name('students.destroy');
 
 Route::get('/admin/guardians', [GuardiansAdController::class, 'index'])->name('guardians.table');
+Route::post('/admin/guardians', [GuardiansAdController::class, 'store'])->name('guardians.store');
+Route::put('/admin/guardians/{id}', [GuardiansAdController::class, 'update'])->name('guardians.update');
+Route::delete('/admin/guardians/{id}', [GuardiansAdController::class, 'destroy'])->name('guardians.destroy');
 
 Route::get('/admin/classroom', [ClassroomAdController::class, 'index'])->name('classrooms.table');
 Route::post('admin/classroom', [ClassroomAdController::class, 'store'])->name('classrooms.store');
+Route::put('admin/classroom/{id}', [ClassroomAdController::class, 'update'])->name('classrooms.update');
 
 Route::get('/admin/teachers', [TeachersAdController::class, 'index'])->name('teachers.table');
+Route::post('/admin/teachers', [TeachersAdController::class, 'store'])->name('teachers.store');
+Route::put('/admin/teachers/{id}', [TeachersAdController::class, 'update'])->name('teachers.update');
+Route::delete('/admin/teachers/{id}', [TeachersAdController::class, 'destroy'])->name('teachers.destroy');
 
 Route::get('/admin/subjects', [SubjectsAdController::class, 'index'])->name('subjects.table');
+Route::post('admin/subjects', [SubjectsAdController::class, 'store'])->name('subjects.store');
+Route::put('admin/subjects/{id}', [SubjectsAdController::class, 'update'])->name('subjects.update');
