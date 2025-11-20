@@ -1,12 +1,16 @@
 <!-- Modal body -->
-<form action="{{ route('students.update', $classroom->id) }}" method="POST">
+<form action="{{ route('subjects.update', $subject->id) }}" method="POST">
     @csrf
     @method('PUT')
 
     <div class="grid gap-4 mb-4 sm:grid-cols-2">
         <div>
             <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
-            <input value="{{ old('name', $classroom->name) }}" type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type classroom name" required="">
+            <input value="{{ old('name', $subject->name) }}" type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type subject name" required="">
+        </div>
+        <div>
+            <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
+            <input value="{{ old('name', $subject->description) }}" type="text" name="description" id="description" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type subject description" required="">
         </div>
     </div>
     <button type="submit" class="inline-flex items-center justify-center text-white
@@ -16,6 +20,6 @@
         <svg class="mr-1 -ml-1 w-6 h-6" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
         </svg>
-        Update classroom
+        Update subject
     </button>
 </form>

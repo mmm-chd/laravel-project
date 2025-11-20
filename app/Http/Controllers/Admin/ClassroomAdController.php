@@ -63,7 +63,15 @@ class ClassroomAdController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $classrooms = Classroom::findOrFail($id);
+
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+        ]);
+
+        $classrooms->update($validated);
+
+        return redirect()->back()->with('success', 'Classroom updated successfully!');
     }
 
     /**

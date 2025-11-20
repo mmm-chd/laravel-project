@@ -5,7 +5,7 @@
         <!-- Start coding here -->
         @foreach ($classrooms as $classroom)
         @php
-            $createModalId = 'createClassroomModal-';
+            $createModalId = 'createClassroomModal';
         @endphp
         @endforeach
         <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">

@@ -1,5 +1,5 @@
 <!-- Modal body -->
-<form action="{{ route('students.update', $classroom->id) }}" method="POST">
+<form action="{{ route('classrooms.update', $classroom->id) }}" method="POST">
     @csrf
     @method('PUT')
 

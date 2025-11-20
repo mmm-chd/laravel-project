@@ -33,7 +33,14 @@ class SubjectsAdController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string|max:255',
+        ]);
+
+        Subject::create($validated);
+
+        return redirect()->back()->with('success', 'Data berhasil disimpan !');
     }
 
     /**
@@ -57,7 +64,16 @@ class SubjectsAdController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $subjects = Subject::findOrFail($id);
+
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string|max:255',
+        ]);
+
+        $subjects->update($validated);
+
+        return redirect()->back()->with('success', 'Subject updated successfully!');
     }
 
     /**

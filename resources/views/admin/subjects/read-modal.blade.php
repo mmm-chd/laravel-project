@@ -1,7 +1,7 @@
 <!-- Modal header -->
 <div class="flex justify-between mb-4 rounded-t sm:mb-5">
     <div class="text-lg text-gray-900 md:text-xl dark:text-white">
-        <h3 class="font-semibold ">{{ $classroom->name}} </h3>
+        <h3 class="font-semibold ">{{ $subject->name}} </h3>
     </div>
     <div>
         <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 inline-flex dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="{{ $viewModalId }}">
@@ -13,7 +13,8 @@
     </div>
 </div>
 <dl>
-    <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white">Name</dt><dd class="mb-4 font-light text-gray-500 sm:mb-5 dark:text-gray-400">{{ $classroom->name }}</dd>
+    <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white">Name</dt><dd class="mb-4 font-light text-gray-500 sm:mb-5 dark:text-gray-400">{{ $subject->name }}</dd>
+    <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white">Description</dt><dd class="mb-4 font-light text-gray-500 sm:mb-5 dark:text-gray-400">{{ $subject->description }}</dd>
 </dl>
 <div class="flex justify-between items-center">
     <div class="flex items-center space-x-3 sm:space-x-4">

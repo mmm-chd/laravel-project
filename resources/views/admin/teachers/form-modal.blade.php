@@ -12,8 +12,8 @@
                 required>
         </div>
         <div>
-            <label for="subject" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Subject</label>
-            <select id="subject" name="subject"
+            <label for="subject_id" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Subject</label>
+            <select id="subject_id" name="subject_id"
                 class="w-full border rounded-lg p-2 dark:bg-gray-700 dark:text-white"
                 required>
                 <option value="">-- Select Subject --</option>

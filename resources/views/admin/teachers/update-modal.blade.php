@@ -15,8 +15,8 @@
                 required>
         </div>
         <div>
-            <label for="subject" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Subject</label>
-            <select id="subject" name="subject"
+            <label for="subject_id" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Subject</label>
+            <select id="subject_id" name="subject_id"
                 class="w-full border rounded-lg p-2 dark:bg-gray-700 dark:text-white"
                 required>
                 <option value="">-- Select Subject --</option>
@@ -54,7 +54,7 @@
             class="w-full border rounded-lg p-2 dark:bg-gray-700 dark:text-white"
             placeholder="Your address">
     </div>
-    <div class="flex items-center space-x-4">
+    <div class="flex items-center space-x-4 mt-4">
         <button type="submit"
             class="inline-flex items-center justify-center text-white
                    bg-orange-600 hover:bg-orange-700 focus:ring-4 focus:ring-orange-300
@@ -84,5 +84,4 @@
             Delete
         </button>
     </div>
-
 </form>

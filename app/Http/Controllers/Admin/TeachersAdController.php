@@ -40,7 +40,7 @@ class TeachersAdController extends Controller
             'name' => 'required|string|max:255',
             'subject_id' => 'required|integer|exists:subjects,id',
             'phone' => 'required|string|min:8|max:20',
-            'email' => 'required|email|unique:guardians,email',
+            'email' => 'required|email|unique:teachers,email',
             'address' => 'nullable|string|max:255',
         ]);
 
@@ -76,7 +76,7 @@ class TeachersAdController extends Controller
             'name' => 'required|string|max:255',
             'subject_id' => 'required|integer|exists:subjects,id',
             'phone' => 'required|string|min:8|max:20',
-            'email' => 'required|email|unique:guardians,email,' . $id,
+            'email' => 'required|email|unique:teachers,email,' . $id,
             'address' => 'nullable|string|max:255',
         ]);
 
