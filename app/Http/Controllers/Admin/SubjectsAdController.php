@@ -15,7 +15,7 @@ class SubjectsAdController extends Controller
     {
         $subjects = Subject::with('teacher')->paginate(30);
 
-        return view('pages.admin.subjects', [
+        return view('admin.subjects.table', [
             'subjects' => $subjects
         ]);
     }

@@ -15,7 +15,7 @@ class TeachersAdController extends Controller
     {
         $teachers = Teacher::with('subject')->paginate(30);
 
-        return view('pages.admin.teachers', [
+        return view('admin.teachers.table', [
             'teachers' => $teachers
         ]);
     }

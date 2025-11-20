@@ -15,7 +15,7 @@ class GuardiansAdController extends Controller
     {
         $guardians = Guardian::paginate(30);
 
-        return view('pages.admin.guardians', [
+        return view('admin.guardians.table', [
             'guardians' => $guardians
         ]);
     }

@@ -15,7 +15,7 @@ class ClassroomAdController extends Controller
     {
         $classrooms = Classroom::with('students')->paginate(30);
 
-        return view('pages.admin.classroom', [
+        return view('admin.classrooms.table', [
             'classrooms' => $classrooms
         ]);
     }
@@ -33,7 +33,13 @@ class ClassroomAdController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+        ]);
+
+        Classroom::create($validated);
+
+        return redirect()->back()->with('success', 'Data berhasil disimpan !');
     }
 
     /**

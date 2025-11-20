@@ -33,8 +33,17 @@ Route::get('/subject', [SubjectController::class, 'index']);
 
 Route::get('/admin', [DashboardAdController::class, 'index']);
 Route::get('/admin/dashboard', [DashboardAdController::class, 'index']);
-Route::get('/admin/students', [StudentsAdController::class, 'index']);
-Route::get('/admin/guardians', [GuardiansAdController::class, 'index']);
-Route::get('/admin/classroom', [ClassroomAdController::class, 'index']);
-Route::get('/admin/teachers', [TeachersAdController::class, 'index']);
-Route::get('/admin/subjects', [SubjectsAdController::class, 'index']);
+
+Route::get('/admin/students', [StudentsAdController::class, 'index'])->name('students.table');
+Route::post('admin/students', [StudentsAdController::class, 'store'])->name('students.store');
+Route::put('/admin/students/{id}', [StudentsAdController::class, 'update'])->name('students.update');
+Route::delete('/admin/students/{id}', [StudentsAdController::class, 'destroy'])->name('students.destroy');
+
+Route::get('/admin/guardians', [GuardiansAdController::class, 'index'])->name('guardians.table');
+
+Route::get('/admin/classroom', [ClassroomAdController::class, 'index'])->name('classrooms.table');
+Route::post('admin/classroom', [ClassroomAdController::class, 'store'])->name('classrooms.store');
+
+Route::get('/admin/teachers', [TeachersAdController::class, 'index'])->name('teachers.table');
+
+Route::get('/admin/subjects', [SubjectsAdController::class, 'index'])->name('subjects.table');

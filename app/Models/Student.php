@@ -11,6 +11,14 @@ class Student extends Model
     use HasFactory;
 
     protected $with = ['classroom'];
+    protected $fillable = [
+        'name',
+        'birthday',
+        'gender',
+        'classroom_id',
+        'email',
+        'address'
+    ];
 
     public function classroom()
     {
