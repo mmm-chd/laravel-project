@@ -3,11 +3,9 @@
 <section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5 antialiased">
     <div class="mx-auto max-w-screen-xl px-4 lg:px-12">
         <!-- Start coding here -->
-        @foreach ($students as $student)
         @php
             $createModalId = 'createStudentModal';
         @endphp
-        @endforeach
         <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
             {{-- Header + tombol --}}
             <x-admin.menu-table
@@ -32,7 +30,7 @@
                     <tbody>
                         @foreach ($students as $student)
                         <tr class="border-b dark:border-gray-700">
-                            <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ $loop->iteration }}</th>
+                            <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ $students->firstItem() + $loop->index }}</th>
                             <td class="px-4 py-3">{{ $student->name }}</td>
                             <td class="px-4 py-3">{{ $student->classroom->name }}</td>
                             <td class="px-4 py-3">{{ $student->email }}</td>
@@ -172,16 +170,9 @@
             </div>
 
             {{-- Pagination --}}
-            <nav class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-3 md:space-y-0 p-4" aria-label="Table navigation">
-                <span class="text-sm font-normal text-gray-500 dark:text-gray-400">
-                    Showing
-                    <span class="font-semibold text-gray-900 dark:text-white">{{ $students->firstItem() }}</span>
-                    to
-                    <span class="font-semibold text-gray-900 dark:text-white">{{ $students->lastItem() }}</span>
-                    of
-                    <span class="font-semibold text-gray-900 dark:text-white">{{ $students->total() }}</span>
-                </span>
-            </nav>
+            <div class="p-4">
+            {{ $students->links() }}
+            </div>
         </div>
     </div>
 </section>

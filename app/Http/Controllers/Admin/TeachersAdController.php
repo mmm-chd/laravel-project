@@ -12,15 +12,16 @@ class TeachersAdController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $teachers = Teacher::with('subject')->paginate(30);
+        $teachers = Teacher::with('subject')
+            ->search($request->input('search'))
+            ->paginate(9)
+            ->withQueryString();
+
         $subjects = Subject::all();
 
-        return view('admin.teachers.table', [
-            'teachers' => $teachers,
-            'subjects' => $subjects
-        ]);
+        return view('admin.teachers.table', compact('teachers', 'subjects'));
     }
 
     /**

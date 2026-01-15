@@ -10,7 +10,9 @@
 
 <body class="h-full">
     <div class="min-h-full">
-        <x-navbar></x-navbar>
+        @auth
+            <x-navbar></x-navbar>
+        @endauth
         <x-header>
             {{ $judul }}
         </x-header>

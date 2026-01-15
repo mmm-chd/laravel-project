@@ -11,13 +11,11 @@ class GuardiansAdController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $guardians = Guardian::paginate(30);
+        $guardians = Guardian::search($request->input('search'))->paginate(9)->withQueryString();
 
-        return view('admin.guardians.table', [
-            'guardians' => $guardians
-        ]);
+        return view('admin.guardians.table', compact('guardians'));
     }
 
     /**

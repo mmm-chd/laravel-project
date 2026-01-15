@@ -16,4 +16,15 @@ class Classroom extends Model
     {
         return $this->hasMany(Student::class, 'classroom_id');
     }
+
+    public function scopeSearch($query, $search)
+    {
+        if (!$search) {
+            return $query;
+        }
+
+        return $query->where(function ($q) use ($search) {
+            $q->where('name', 'like', "%{$search}%");
+        });
+    }
 }

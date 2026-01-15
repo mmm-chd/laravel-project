@@ -11,13 +11,14 @@ class SubjectsAdController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $subjects = Subject::with('teacher')->paginate(30);
+        $subjects = Subject::with('teacher')
+            ->search($request->input('search'))
+            ->paginate(9)
+            ->withQueryString();
 
-        return view('admin.subjects.table', [
-            'subjects' => $subjects
-        ]);
+        return view('admin.subjects.table', compact('subjects'));
     }
 
     /**

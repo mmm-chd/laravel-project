@@ -33,7 +33,7 @@
                     <tbody>
                         @foreach ($guardians as $guardian)
                         <tr class="border-b dark:border-gray-700">
-                            <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ $loop->iteration }}</th>
+                            <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{  $guardians->firstItem() + $loop->index }}</th>
                             <td class="px-4 py-3">{{ $guardian->name }}</td>
                             <td class="px-4 py-3">{{ $guardian->job }}</td>
                             <td class="px-4 py-3">{{ $guardian->phone }}</td>
@@ -172,16 +172,9 @@
             
 
             {{-- Pagination --}}
-            <nav class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-3 md:space-y-0 p-4" aria-label="Table navigation">
-                <span class="text-sm font-normal text-gray-500 dark:text-gray-400">
-                    Showing
-                    <span class="font-semibold text-gray-900 dark:text-white">{{ $guardians->firstItem() }}</span>
-                    to
-                    <span class="font-semibold text-gray-900 dark:text-white">{{ $guardians->lastItem() }}</span>
-                    of
-                    <span class="font-semibold text-gray-900 dark:text-white">{{ $guardians->total() }}</span>
-                </span>
-            </nav>
+            <div class="p-4">
+            {{ $guardians->links() }}
+            </div>
         </div>
     </div>
 </section>

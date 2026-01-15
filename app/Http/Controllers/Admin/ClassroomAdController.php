@@ -11,13 +11,14 @@ class ClassroomAdController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $classrooms = Classroom::with('students')->paginate(30);
+        $classrooms = Classroom::with('students')
+            ->search($request->input('search'))
+            ->paginate(9)
+            ->withQueryString();
 
-        return view('admin.classrooms.table', [
-            'classrooms' => $classrooms
-        ]);
+        return view('admin.classrooms.table', compact('classrooms'));
     }
 
     /**

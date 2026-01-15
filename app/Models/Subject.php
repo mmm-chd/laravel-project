@@ -19,4 +19,16 @@ class Subject extends Model
     {
         return $this->hasOne(Teacher::class, 'subject_id');
     }
+
+    public function scopeSearch($query, $search)
+    {
+        if (!$search) {
+            return $query;
+        }
+
+        return $query->where(function ($q) use ($search) {
+            $q->where('name', 'like', "%{$search}%")
+                ->orWhere('description', 'like', "%{$search}%");
+        });
+    }
 }

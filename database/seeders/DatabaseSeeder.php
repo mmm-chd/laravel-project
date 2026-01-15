@@ -2,10 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Classroom;
-use App\Models\Guardian;
+use App\Models\User;
 use App\Models\Subject;
+use App\Models\Guardian;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Classroom;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -22,9 +23,10 @@ class DatabaseSeeder extends Seeder
         Classroom::factory(7)->hasStudents(3)->create();
         Subject::factory(7)->hasTeacher(1)->create();
 
-        // User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        User::factory()->create([
+            'name' => 'Test',
+            'email' => 'test@example.com',
+            'password' => bcrypt('Test'),
+        ]);
     }
 }

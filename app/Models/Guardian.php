@@ -17,4 +17,19 @@ class Guardian extends Model
         'email',
         'address'
     ];
+
+    public function scopeSearch($query, $search)
+    {
+        if (!$search) {
+            return $query;
+        }
+
+        return $query->where(function ($q) use ($search) {
+            $q->where('name', 'like', "%{$search}%")
+                ->orWhere('job', 'like', "%{$search}%")
+                ->orWhere('email', 'like', "%{$search}%")
+                ->orWhere('address', 'like', "%{$search}%")
+                ->orWhere('phone', 'like', "%{$search}%");
+        });
+    }
 }

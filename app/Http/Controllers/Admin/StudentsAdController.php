@@ -12,18 +12,16 @@ class StudentsAdController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        // $students = Student::all();
+        $students = Student::with('classroom')
+            ->search($request->input('search'))
+            ->paginate(9)
+            ->withQueryString();
 
-        ////Eager Loading
-        $students = Student::with('classroom')->paginate(30);
         $classrooms = Classroom::all();
 
-        return view('admin.students.table', [
-            'students' => $students,
-            'classrooms' => $classrooms,
-        ]);
+        return view('admin.students.table', compact('students', 'classrooms'));
     }
 
     /**

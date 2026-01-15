@@ -24,4 +24,20 @@ class Student extends Model
     {
         return $this->belongsTo(Classroom::class, 'classroom_id');
     }
+
+    public function scopeSearch($query, $search)
+    {
+        if (!$search) {
+            return $query;
+        }
+
+        return $query->where(function ($q) use ($search) {
+            $q->where('name', 'like', "%{$search}%")
+              ->orWhere('email', 'like', "%{$search}%")
+              ->orWhere('address', 'like', "%{$search}%")
+              ->orWhereHas('classroom', function ($qc) use ($search) {
+                  $qc->where('name', 'like', "%{$search}%");
+              });
+        });
+    }
 }

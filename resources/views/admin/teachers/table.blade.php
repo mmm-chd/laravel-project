@@ -173,16 +173,9 @@
             </div>
 
             {{-- Pagination --}}
-            <nav class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-3 md:space-y-0 p-4" aria-label="Table navigation">
-                <span class="text-sm font-normal text-gray-500 dark:text-gray-400">
-                    Showing
-                    <span class="font-semibold text-gray-900 dark:text-white">{{ $teachers->firstItem() }}</span>
-                    to
-                    <span class="font-semibold text-gray-900 dark:text-white">{{ $teachers->lastItem() }}</span>
-                    of
-                    <span class="font-semibold text-gray-900 dark:text-white">{{ $teachers->total() }}</span>
-                </span>
-            </nav>
+            <div class="p-4">
+            {{ $teachers->links() }}
+            </div>
         </div>
     </div>
 </section>
