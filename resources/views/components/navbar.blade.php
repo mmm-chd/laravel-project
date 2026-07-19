@@ -77,7 +77,11 @@
                                     profile</a>
                                 <a href="#"
                                     class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:outline-hidden">Settings</a>
-
+                                @if (Auth::check() && Auth::user()->role === 'admin')
+                                    <a href="/admin/dashboard"
+                                        class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:outline-hidden">Admin
+                                        Panel</a>
+                                @endif
                                 <form method="POST" action="{{ route('auth.logout') }}" id="logout-form-desktop">
                                     @csrf
                                     <button type="submit"
@@ -166,7 +170,11 @@
                     <a href="#"
                         class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-white/5 hover:text-white">Settings</a>
 
-                    <!-- FIXED LOGOUT -->
+                    @if (Auth::check() && Auth::user()->role === 'admin')
+                        <a href="/admin"
+                            class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-white/5 hover:text-white">Admin
+                            Panel</a>
+                    @endif
                     <form method="POST" action="{{ route('auth.logout') }}" id="logout-form-mobile">
                         @csrf
                         <button type="submit"

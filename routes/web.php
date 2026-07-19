@@ -18,6 +18,9 @@ use App\Http\Controllers\admin\TeachersAdController;
 use App\Http\Controllers\admin\ClassroomAdController;
 use App\Http\Controllers\admin\DashboardAdController;
 use App\Http\Controllers\admin\GuardiansAdController;
+use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Auth\RegisterController;
+
 //
 // Route::get('/', function () {
 //     return view('Selamat datang di web saya');
@@ -33,7 +36,7 @@ Route::prefix('/')->middleware('auth')->group(function () {
     Route::get('/subject', [SubjectController::class, 'index']);
 });
 
-Route::prefix('admin')->middleware('auth')->group(function () {
+Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     Route::get('', [DashboardAdController::class, 'index']);
     Route::get('/dashboard', [DashboardAdController::class, 'index']);
 
@@ -69,6 +72,14 @@ Route::prefix('auth')->group(function () {
 
     Route::post('/login', [LoginController::class, 'login'])
         ->name('auth.login')
+        ->middleware('guest');
+
+    Route::get('/register', [RegisterController::class, 'index'])
+        ->name('register')
+        ->middleware('guest');
+
+    Route::post('/register', [RegisterController::class, 'register'])
+        ->name('auth.register')
         ->middleware('guest');
 
     Route::post('/logout', [LoginController::class, 'logout'])

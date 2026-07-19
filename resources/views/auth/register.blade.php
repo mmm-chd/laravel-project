@@ -7,7 +7,7 @@
             <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
 
                 <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
-                    Sign in to your account
+                    Register your first account
                 </h1>
 
                 @if ($errors->any())
@@ -16,8 +16,17 @@
                     </div>
                 @endif
 
-                <form class="space-y-4 md:space-y-6" action="{{ route('auth.login') }}" method="POST">
+                <form class="space-y-4 md:space-y-6" action="{{ route('auth.register') }}" method="POST">
                     @csrf
+                    <div>
+                        <label for="name" class="block mb-2 text-sm font-medium text-gray-900">
+                            Your name
+                        </label>
+                        <input type="text" name="name" id="name"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg
+                                focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                            placeholder="John Doe" required>
+                    </div>
                     <div>
                         <label for="email" class="block mb-2 text-sm font-medium text-gray-900">
                             Your email
@@ -38,37 +47,18 @@
                             required>
                     </div>
 
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-start">
-                            <div class="flex items-center h-5">
-                                <input id="remember" type="checkbox"
-                                    class="w-4 h-4 border border-gray-300 rounded bg-gray-50
-                                        focus:ring-3 focus:ring-primary-300">
-                            </div>
-                            <div class="ml-3 text-sm">
-                                <label for="remember" class="text-gray-600">
-                                    Remember me
-                                </label>
-                            </div>
-                        </div>
-
-                        <a href="#" class="text-sm font-medium text-primary-600 hover:underline">
-                            Forgot password?
-                        </a>
-                    </div>
-
                     <button type="submit"
                         class="w-full text-white bg-blue-600 hover:bg-blue-700
            focus:ring-4 focus:outline-none focus:ring-blue-300
            font-medium rounded-lg text-sm px-5 py-2.5 text-center cursor-pointer">
-                        Sign in
+                        Sign up
                     </button>
 
 
                     <p class="text-sm font-light text-gray-500">
-                        Don’t have an account yet?
-                        <a href="{{ route('auth.register') }}" class="font-medium text-primary-600 hover:underline">
-                            Sign up
+                        Already have an account?
+                        <a href="{{ route('auth.login') }}" class="font-medium text-primary-600 hover:underline">
+                            Sign in
                         </a>
                     </p>
 
